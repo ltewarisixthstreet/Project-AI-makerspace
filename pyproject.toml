@@ -1,0 +1,43 @@
+[project]
+name = "financial-advisor-ai"
+version = "0.1.0"
+description = "Agentic RAG financial advisor (FastAPI + LangChain + Qdrant)"
+requires-python = ">=3.10"
+dependencies = [
+    # Core FastAPI
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic>=2",
+    "python-multipart",
+    # LangChain & LLM integration
+    "langchain",
+    "langchain-openai",
+    "langchain-anthropic",
+    "langchain-community",
+    "langchain-text-splitters",
+    "langchain-qdrant",
+    # Vector DB
+    "qdrant-client",
+    # PDF loading
+    "pypdf",
+    # API clients
+    "openai",
+    "anthropic",
+    "tavily-python",
+    # Data & utilities
+    "python-dotenv",
+    "redis",
+    "requests",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "httpx",
+    "black",
+    "jupyter",
+    "notebook",
+]
+
+[tool.uv]
+package = false

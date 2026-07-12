@@ -20,6 +20,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import uvicorn
 
+# Load environment variables from a local .env file if present (no-op in prod
+# environments like Render where vars are set directly).
+from dotenv import load_dotenv
+load_dotenv()
+
 # LangChain imports
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -48,7 +53,7 @@ API_KEYS = {
 }
 
 EMBEDDING_MODEL = "text-embedding-3-small"
-LLM_MODEL = "claude-3-5-sonnet-20241022"
+LLM_MODEL = "claude-sonnet-5"
 CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 150
 RETRIEVAL_K = 4
@@ -59,7 +64,7 @@ RETRIEVAL_K = 4
 
 class UserContext(BaseModel):
     """User's financial situation."""
-    user_id: str
+    user_id: Optional[str] = None
     salary: Optional[float] = None
     assets: Optional[float] = None
     debt: Optional[float] = None
@@ -170,7 +175,9 @@ class FinancialAdvisorRAG:
         print(f"✓ Built Qdrant vector store")
 
         # 5. Initialize LLM
-        self.llm = ChatAnthropic(model=LLM_MODEL, temperature=0.7)
+        # Note: claude-sonnet-5 (and other 4.7+ models) reject non-default
+        # sampling params like temperature; steer behavior via the prompt instead.
+        self.llm = ChatAnthropic(model=LLM_MODEL)
         print(f"✓ Initialized LLM: {LLM_MODEL}")
 
         # 6. Set up RAG chain
@@ -326,7 +333,14 @@ async def chat(request: ChatRequest) -> ChatResponse:
         context_str = None
         if sessions[session_id]["user_context"]:
             ctx = sessions[session_id]["user_context"]
-            context_str = f"User: Age ~{ctx.get('timeline_years', 'unknown')}, Salary ~${ctx.get('salary', 'unknown')}, Assets ${ctx.get('assets', 'unknown')}, Risk tolerance: {ctx.get('risk_tolerance', 'unknown')}"
+            context_str = (
+                f"User financial profile: "
+                f"Salary ~${ctx.get('salary', 'unknown')}, "
+                f"Assets ${ctx.get('assets', 'unknown')}, "
+                f"Debt ${ctx.get('debt', 'unknown')}, "
+                f"Years to retirement: {ctx.get('timeline_years', 'unknown')}, "
+                f"Risk tolerance: {ctx.get('risk_tolerance', 'unknown')}"
+            )
 
         # Retrieve and answer
         result = rag.retrieve_and_answer(request.message, context_str)
@@ -463,9 +477,11 @@ if __name__ == "__main__":
     print(f"📖 Knowledge Base: Were-Talking-Millions.pdf")
     print("="*80 + "\n")
 
+    # Bind to the platform-provided PORT (e.g. Render sets $PORT); default 8000 locally.
+    port = int(os.getenv("PORT", "8000"))
     uvicorn.run(
         app,
         host="0.0.0.0",
-        port=8000,
+        port=port,
         log_level="info",
     )
