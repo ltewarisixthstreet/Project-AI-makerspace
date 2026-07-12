@@ -1,0 +1,24 @@
+# Financial Advisor AI - Python Dependencies
+fastapi
+uvicorn[standard]
+pydantic
+python-multipart
+langchain
+langchain-openai
+langchain-anthropic
+langchain-community
+langchain-text-splitters
+langchain-qdrant
+qdrant-client
+pypdf
+openai
+anthropic
+tavily-python
+python-dotenv
+redis
+requests
+pytest
+httpx
+black
+jupyter
+notebook
