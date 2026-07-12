@@ -1,1 +1,21 @@
+# Environment / secrets
 .env
+.env.*
+!.env.example
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Node (frontend also has its own .gitignore)
+node_modules/
+
+# OS
+.DS_Store

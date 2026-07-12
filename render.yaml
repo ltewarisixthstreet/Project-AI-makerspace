@@ -1,0 +1,23 @@
+# Render Blueprint for the Financial Advisor AI backend.
+# Deploy: push to GitHub -> render.com -> New -> Blueprint -> select this repo.
+# Set the secret values (OPENAI_API_KEY, ANTHROPIC_API_KEY) in the Render
+# dashboard; they are marked sync:false so they are NOT stored in the repo.
+services:
+  - type: web
+    name: financial-advisor-backend
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python backend_main.py
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      # Render injects PORT automatically; backend_main.py reads it via os.getenv("PORT").
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      # Optional — only needed if/when Tavily web search is wired in.
+      - key: TAVILY_API_KEY
+        sync: false
