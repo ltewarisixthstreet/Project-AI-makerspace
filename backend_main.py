@@ -56,7 +56,14 @@ EMBEDDING_MODEL = "text-embedding-3-small"
 LLM_MODEL = "claude-sonnet-5"
 CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 150
-RETRIEVAL_K = 4
+RETRIEVAL_K = 6              # Task 6: raised from 4 for more grounding context
+
+# Task 6: hybrid retrieval — fuse BM25 keyword search with dense vector search
+# (reciprocal-rank fusion). Keyword matching catches exact terms (e.g. "37%
+# bracket", dollar thresholds) that pure embeddings miss. Set False for
+# dense-only (the Task 5 baseline behavior).
+HYBRID_RETRIEVAL = True
+RRF_CONSTANT = 60           # reciprocal-rank-fusion damping constant
 
 # Additional structured knowledge sources (loaded whole, not chunked).
 EXCEL_SOURCES = ["tax_slab_2025.xlsx"]
@@ -128,6 +135,7 @@ class FinancialAdvisorRAG:
         """Initialize RAG components."""
         self.embeddings = None
         self.vector_store = None
+        self.bm25 = None
         self.llm = None
         self.rag_chain = None
         self._initialize()
@@ -189,6 +197,16 @@ class FinancialAdvisorRAG:
         )
         print(f"✓ Built Qdrant vector store ({len(all_docs)} documents)")
 
+        # 4b. Build BM25 keyword retriever for hybrid search (Task 6).
+        self.bm25 = None
+        if HYBRID_RETRIEVAL:
+            try:
+                from langchain_community.retrievers import BM25Retriever
+                self.bm25 = BM25Retriever.from_documents(all_docs)
+                print("✓ BM25 keyword retriever ready (hybrid retrieval enabled)")
+            except Exception as e:
+                print(f"⚠ BM25 unavailable — falling back to dense-only retrieval: {e}")
+
         # 5. Initialize LLM
         # Note: claude-sonnet-5 (and other 4.7+ models) reject non-default
         # sampling params like temperature; steer behavior via the prompt instead.
@@ -208,7 +226,9 @@ Your role is to help high-income earners make informed financial decisions by:
 Guidelines:
 - Use only the provided context from the knowledge base (Were-Talking-Millions.pdf and the 2025 U.S. federal income tax brackets from tax_slab_2025.xlsx)
 - If context lacks information, say: "I don't have detailed guidance on that in my knowledge base."
+- Ground every specific figure, percentage, dollar threshold, statistic, or quote in the retrieved context. If a number is not present in the context, do NOT state it — say the knowledge base doesn't specify it, or speak qualitatively instead of inventing values.
 - Cite sources using [Source 1], [Source 2]
+- Attach a [Source N] citation only to a claim that source actually supports; never cite a source for a figure or statement it does not contain
 - Explain reasoning behind recommendations
 - Acknowledge multiple valid approaches
 - For decision paralysis: provide a clear framework
@@ -295,10 +315,49 @@ Provide a thoughtful, personalized response that teaches decision-making."""
         print(f"✓ Loaded {len(docs)} document(s) from {path.name}")
         return docs
 
+    def _hybrid_retrieve(self, question: str, k: int):
+        """Hybrid retrieval: fuse dense (vector) and BM25 (keyword) rankings via
+        reciprocal-rank fusion. Returns a list of (Document, dense_score) tuples,
+        ordered by fused rank. The reported score is the dense cosine score (for
+        continuity with the dense-only baseline); BM25-only hits report 0.0.
+        """
+        candidate_k = max(20, k * 4)
+
+        dense_scored = self.vector_store.similarity_search_with_score(question, k=candidate_k)
+        dense_rank, score_map, doc_by_key = {}, {}, {}
+        for rank, (doc, score) in enumerate(dense_scored):
+            key = doc.page_content
+            dense_rank.setdefault(key, rank)
+            score_map.setdefault(key, float(score))
+            doc_by_key.setdefault(key, doc)
+
+        bm25_rank = {}
+        if self.bm25 is not None:
+            self.bm25.k = candidate_k
+            for rank, doc in enumerate(self.bm25.invoke(question)):
+                key = doc.page_content
+                bm25_rank.setdefault(key, rank)
+                doc_by_key.setdefault(key, doc)
+
+        fused = []
+        for key in set(dense_rank) | set(bm25_rank):
+            s = 0.0
+            if key in dense_rank:
+                s += 1.0 / (RRF_CONSTANT + dense_rank[key])
+            if key in bm25_rank:
+                s += 1.0 / (RRF_CONSTANT + bm25_rank[key])
+            fused.append((key, s))
+        fused.sort(key=lambda x: x[1], reverse=True)
+
+        return [(doc_by_key[key], score_map.get(key, 0.0)) for key, _ in fused[:k]]
+
     def retrieve_and_answer(self, question: str, user_context: Optional[str] = None) -> dict:
         """Retrieve relevant chunks and generate answer."""
-        # Retrieve
-        scored_docs = self.vector_store.similarity_search_with_score(question, k=RETRIEVAL_K)
+        # Retrieve — hybrid (BM25 + dense) when enabled, else dense-only.
+        if HYBRID_RETRIEVAL and self.bm25 is not None:
+            scored_docs = self._hybrid_retrieve(question, RETRIEVAL_K)
+        else:
+            scored_docs = self.vector_store.similarity_search_with_score(question, k=RETRIEVAL_K)
 
         # Format context
         context_parts = []
