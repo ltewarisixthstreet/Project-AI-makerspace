@@ -123,9 +123,14 @@ Backend on **Render** (persistent process), frontend on **Vercel**. See the **De
 - **CORS** — currently allows all origins; tighten to the frontend domain for production.
 - **Tavily / real-time data** — planned but not yet integrated.
 
-## Roadmap (project tasks)
+## Project tasks
 
-Tasks 1–4 (problem definition → deployed prototype) are complete. Remaining:
-- **Task 5** — evaluation harness (test set, retrieval/quality metrics, LLM-as-judge)
-- **Task 6** — advanced retrieval (hybrid search, re-ranking, metadata filtering)
-- **Task 7** — reflection, demo, finalize
+All seven tasks are complete (see the `TASK_*.md` write-ups):
+- **Tasks 1–3** — problem definition, solution design, data strategy
+- **Task 4** — end-to-end prototype, deployed to Render + Vercel
+- **Task 5** — evaluation harness + baseline (`eval/`, `TASK_5_EVALUATION.md`)
+- **Task 6** — hybrid retrieval (BM25 + dense) + faithfulness guardrail, A/B'd (`TASK_6_ADVANCED_RETRIEVAL.md`)
+- **Task 7** — reflection, demo script, finalization (`TASK_7_REFLECTION.md`)
+
+Next features (from Task 7): persist the vector store, add a re-ranker, Redis-backed
+sessions, social login, and streaming responses.
