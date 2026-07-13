@@ -29,10 +29,13 @@ FastAPI backend (backend_main.py)
         ├── Qdrant  (in-memory vector store, built at startup)
         └── Anthropic  claude-sonnet-5        (generation)
                  ▲
-      Were-Talking-Millions.pdf (knowledge base)
+      Knowledge base:
+        • Were-Talking-Millions.pdf   (financial guidance — chunked)
+        • tax_slab_2025.xlsx          (2025 US federal tax brackets — structured)
 ```
 
 - The entire RAG pipeline is built **at startup** (`FinancialAdvisorRAG._initialize()`): load PDF → chunk (1000/150) → embed → build Qdrant (`location=":memory:"`).
+- **Multiple data sources:** the PDF is chunked, while spreadsheets (`tax_slab_2025.xlsx`) are loaded whole via `_load_excel_documents()` — one full-table document plus one per row — since tabular data doesn't chunk well. Add more via the `EXCEL_SOURCES` list in `backend_main.py`.
 - Retrieval uses `similarity_search_with_score` (k=4); the user profile is prepended to the retrieved context before generation.
 - Sessions/users are held in **process-local dicts** (Redis is imported but not yet wired in).
 
@@ -53,7 +56,8 @@ FastAPI backend (backend_main.py)
 ```
 ├── backend_main.py            # FastAPI app + RAG pipeline
 ├── frontend/                  # Next.js app (app/page.tsx = chat UI)
-├── Were-Talking-Millions.pdf  # Knowledge base
+├── Were-Talking-Millions.pdf  # Knowledge base (financial guidance, PDF)
+├── tax_slab_2025.xlsx         # Knowledge base (2025 US federal tax brackets)
 ├── 02_Financial_Advisor_RAG.ipynb  # Dev/experimentation notebook
 ├── pyproject.toml / uv.lock   # Python deps (uv)
 ├── requirements.txt           # Exported from the lock (Render build)

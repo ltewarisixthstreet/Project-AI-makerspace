@@ -58,6 +58,9 @@ CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 150
 RETRIEVAL_K = 4
 
+# Additional structured knowledge sources (loaded whole, not chunked).
+EXCEL_SOURCES = ["tax_slab_2025.xlsx"]
+
 # ============================================================================
 # Data Models
 # ============================================================================
@@ -164,15 +167,27 @@ class FinancialAdvisorRAG:
         splits = splitter.split_documents(pages)
         print(f"✓ Created {len(splits)} chunks (size={CHUNK_SIZE}, overlap={CHUNK_OVERLAP})")
 
+        # 3b. Load additional structured sources (spreadsheets) as whole
+        # documents — tabular data like tax brackets doesn't chunk well.
+        extra_docs = []
+        for xlsx_name in EXCEL_SOURCES:
+            xlsx_path = Path(xlsx_name)
+            if xlsx_path.exists():
+                extra_docs.extend(self._load_excel_documents(xlsx_path))
+            else:
+                print(f"⚠ Skipping missing spreadsheet: {xlsx_name}")
+
+        all_docs = splits + extra_docs
+
         # 4. Build Qdrant vector store
         self.vector_store = QdrantVectorStore.from_documents(
-            documents=splits,
+            documents=all_docs,
             embedding=self.embeddings,
             location=":memory:",
             collection_name="financial_advisor",
             force_recreate=True,
         )
-        print(f"✓ Built Qdrant vector store")
+        print(f"✓ Built Qdrant vector store ({len(all_docs)} documents)")
 
         # 5. Initialize LLM
         # Note: claude-sonnet-5 (and other 4.7+ models) reject non-default
@@ -191,13 +206,13 @@ Your role is to help high-income earners make informed financial decisions by:
 5. Acknowledging behavioral biases and psychological factors
 
 Guidelines:
-- Use only the provided context from Were-Talking-Millions.pdf
+- Use only the provided context from the knowledge base (Were-Talking-Millions.pdf and the 2025 U.S. federal income tax brackets from tax_slab_2025.xlsx)
 - If context lacks information, say: "I don't have detailed guidance on that in my knowledge base."
 - Cite sources using [Source 1], [Source 2]
 - Explain reasoning behind recommendations
 - Acknowledge multiple valid approaches
 - For decision paralysis: provide a clear framework
-- Do NOT provide tax advice (recommend CPA); DO explain tax principles
+- You may use the provided 2025 federal tax brackets to explain marginal vs. effective tax and illustrate calculations; for personal filing decisions, still recommend consulting a CPA
 - Do NOT recommend specific stocks/funds; DO explain evaluation methods
 
 Always end: "Is there anything else about this decision you'd like to explore?" """
@@ -217,6 +232,69 @@ Provide a thoughtful, personalized response that teaches decision-making."""
         self.rag_chain = rag_prompt | self.llm | StrOutputParser()
         print(f"✓ RAG chain ready")
 
+    def _load_excel_documents(self, path: Path) -> List:
+        """Load a spreadsheet into retrieval documents.
+
+        Structured/tabular data (e.g. tax brackets) doesn't chunk well, so each
+        sheet becomes one 'full table' document (all rows kept together) plus one
+        document per data row for granular retrieval. Values in a column whose
+        header mentions 'rate' that look like fractions (0-1) render as percents.
+        """
+        import openpyxl
+        from langchain_core.documents import Document
+
+        def fmt(header, value) -> str:
+            if value is None:
+                return ""
+            if "rate" in str(header).lower() and isinstance(value, (int, float)) and 0 < value <= 1:
+                return f"{value:.0%}"
+            return str(value)
+
+        wb = openpyxl.load_workbook(str(path), data_only=True)
+        docs = []
+        for ws in wb.worksheets:
+            rows = [list(r) for r in ws.iter_rows(values_only=True)]
+            rows = [r for r in rows if any(c is not None for c in r)]
+            if not rows:
+                continue
+
+            # A single-cell first row is treated as a descriptive title.
+            title = None
+            header_idx = 0
+            first_nonempty = [c for c in rows[0] if c is not None]
+            if len(first_nonempty) == 1 and isinstance(first_nonempty[0], str):
+                title = first_nonempty[0].strip()
+                header_idx = 1
+            if header_idx >= len(rows):
+                continue
+
+            headers = [
+                (str(c).strip() if c is not None else f"col{i}")
+                for i, c in enumerate(rows[header_idx])
+            ]
+            data_rows = rows[header_idx + 1:]
+            base_meta = {"source": path.name, "document_type": "tax_reference", "sheet": ws.title}
+
+            # 1) Full-table document — keeps the whole schedule together.
+            lines = []
+            if title:
+                lines.append(title)
+            lines.append(" | ".join(headers))
+            for r in data_rows:
+                lines.append(" | ".join(fmt(h, c) for h, c in zip(headers, r)))
+            docs.append(Document(page_content="\n".join(lines), metadata={**base_meta, "row": "all"}))
+
+            # 2) One document per data row — granular retrieval.
+            for ridx, r in enumerate(data_rows, start=1):
+                pairs = [f"{h}: {fmt(h, c)}" for h, c in zip(headers, r) if c is not None]
+                if not pairs:
+                    continue
+                prefix = f"{title} — " if title else ""
+                docs.append(Document(page_content=prefix + "; ".join(pairs), metadata={**base_meta, "row": ridx}))
+
+        print(f"✓ Loaded {len(docs)} document(s) from {path.name}")
+        return docs
+
     def retrieve_and_answer(self, question: str, user_context: Optional[str] = None) -> dict:
         """Retrieve relevant chunks and generate answer."""
         # Retrieve
@@ -229,7 +307,12 @@ Provide a thoughtful, personalized response that teaches decision-making."""
 
         for idx, (doc, score) in enumerate(scored_docs, start=1):
             page = doc.metadata.get("page")
-            page_display = page + 1 if isinstance(page, int) else "unknown"
+            if isinstance(page, int):
+                page_display = page + 1
+            elif doc.metadata.get("sheet"):
+                page_display = doc.metadata["sheet"]
+            else:
+                page_display = "unknown"
 
             context_parts.append(
                 f"[Source {idx}] {doc.metadata.get('source')}, page {page_display}\n{doc.page_content}"
@@ -474,7 +557,7 @@ if __name__ == "__main__":
     print(f"Starting FastAPI server...")
     print(f"📚 RAG Pipeline: {EMBEDDING_MODEL} + {LLM_MODEL}")
     print(f"🗄️  Vector Store: Qdrant (in-memory)")
-    print(f"📖 Knowledge Base: Were-Talking-Millions.pdf")
+    print(f"📖 Knowledge Base: Were-Talking-Millions.pdf + {', '.join(EXCEL_SOURCES)}")
     print("="*80 + "\n")
 
     # Bind to the platform-provided PORT (e.g. Render sets $PORT); default 8000 locally.
