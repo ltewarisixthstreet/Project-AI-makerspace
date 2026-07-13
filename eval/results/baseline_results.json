@@ -1,0 +1,377 @@
+[
+  {
+    "id": "alloc-horizon",
+    "category": "general",
+    "question": "What's a realistic asset allocation for someone in their 30s with a long time horizon?",
+    "latency_s": 13.16,
+    "top_score": 0.605,
+    "avg_retrieval_score": 0.598,
+    "expected_source": "Were-Talking-Millions.pdf",
+    "retrieved_files": [
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf"
+    ],
+    "source_hit": true,
+    "judge": {
+      "groundedness": 2,
+      "relevance": 5,
+      "framework_quality": 5,
+      "citations": 3,
+      "scope_handling": "na",
+      "rationale": "The answer teaches an excellent decision framework directly relevant to the question, but it fabricates specific quotes and numbers not present in the retrieved sources \u2014 the '25 years from retirement' quote, the Vanguard 2065 fund at 11%, and the 'before they are about 40' language are not supported by the provided snippets, which only mention glide paths, a '2030 fund,' and small-cap value. Citations are formatted well but attach to unsupported claims, undermining groundedness."
+    },
+    "answer": "# Asset Allocation for Long-Time-Horizon Investors in Their 30s\n\nGreat question \u2014 this is exactly the kind of decision where understanding the *reasoning* matters more than memorizing a number.\n\n## What the Framework Suggests\n\nBased on the knowledge base, investors in their 20s and 30s are generally considered good candidates for **all-equity (or near all-equity) portfolios** [Source 3]. The reasoning:\n\n- With decades until retirement, you have time to ride out market volatility and benefit from equities' higher long-term growth potential\n- Bonds primarily serve to *reduce volatility* \u2014 but volatility reduction matters more when you're close to needing the money, not when you have 25-30+ years to let compounding work\n- The source is fairly direct on this: \"We don't believe young investors are served well by investing in bonds before they are about 40, presumably 25 years from retirement\" [Source 2]\n\n## A Point of Nuance\n\nInterestingly, even popular target date funds don't fully follow this logic \u2014 Vanguard's 2065 fund held about 11% in bonds/cash even for investors with 46 years to go [Source 2]. The source frames this as a *shortcoming* of target date funds' \"one-size-fits-all\" glide path, not necessarily something you should replicate.\n\n## How to Think About This for Your Own Situation\n\nRather than a single \"right\" allocation, consider a decision framework:\n\n1. **Time horizon test**: Do you genuinely have 25+ years before you'd need this money? If yes, the case for heavy equity exposure is stronger.\n2. **Behavioral honesty check**: All-equity only \"works\" if you can psychologically hold through a 30-40% drawdown without panic-selling. If market crashes would cause you to abandon your plan, some bonds may be the *behaviorally* correct choice, even if not the mathematically optimal one.\n3. **Glide path awareness**: The source suggests that by your 40s-50s, gradually introducing bonds becomes appropriate as your horizon shortens [Source 3, Source 4].\n4. **Diversification within equities**: The source notes even a modest 10% allocation to certain equity sub-categories (like small-company value stocks) can meaningfully affect long-term returns [Source 1] \u2014 so \"all equities\" doesn't mean \"one big index fund\" necessarily; it invites thinking about diversification *within* your equity sleeve.\n\n## The Honest Trade-off\n\nThere's no universally \"correct\" allocation \u2014 this is a case where **multiple valid approaches exist**:\n- **All-equity**: Maximizes expected long-term returns; requires strong risk tolerance\n- **Target date fund with modest bonds**: Slightly more conservative, more \"set it and forget it,\" but may include a bond allocation the source argues is unnecessary this early\n- **Custom mix**: Some investors deliberately hold a small bond/cash buffer for psychological comfort, accepting a modest return trade-off for reduced anxiety\n\nThe right choice depends on your genuine risk tolerance (not your *aspirational* risk tolerance) and how much oversight/simplicity you want.\n\nIs there anything else about this decision you'd like to explore?"
+  },
+  {
+    "id": "debt-vs-invest",
+    "category": "general",
+    "question": "Should I pay off my mortgage early or invest the extra cash?",
+    "latency_s": 13.44,
+    "top_score": 0.495,
+    "avg_retrieval_score": 0.438,
+    "expected_source": "Were-Talking-Millions.pdf",
+    "retrieved_files": [
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf"
+    ],
+    "source_hit": true,
+    "judge": {
+      "groundedness": 5,
+      "relevance": 5,
+      "framework_quality": 5,
+      "citations": 5,
+      "scope_handling": "na",
+      "rationale": "The answer honestly acknowledges the sources don't directly address the tradeoff, then builds a solid decision framework (guaranteed vs expected return, time horizon, foundation, psychology) while only citing sources for claims they actually support. No hallucinated numbers and appropriate redirect to a professional."
+    },
+    "answer": "I don't have detailed guidance on that specific comparison (mortgage payoff vs. investing) in my knowledge base. My source material covers the power of starting to invest early [Source 1][Source 2] and the importance of prioritizing saving/investing over spending [Source 4], but it doesn't directly address the mortgage-payoff-vs-invest tradeoff.\n\nThat said, I can offer a **decision framework** based on the principles that *are* in my knowledge base, which you can apply to your specific numbers:\n\n### Framework to Think Through This\n\n**1. Compare the \"guaranteed return\" vs. the \"expected return\"**\n- Paying off your mortgage early is a guaranteed return equal to your mortgage interest rate (e.g., if your rate is 6%, extra payments effectively \"earn\" 6%, risk-free).\n- Investing instead is not guaranteed, but the knowledge base emphasizes that time in the market compounds dramatically \u2014 the difference between investing at 21 vs. 31 was over $1 million by retirement [Source 1]. This suggests that **time horizon matters enormously**, and money invested early has an outsized advantage over money invested later (such as after your mortgage is paid off).\n\n**2. Consider your time horizon**\n- If you're young and have decades until retirement, the compounding advantage of investing sooner rather than later is significant [Source 1][Source 2]. Diverting extra cash to mortgage payoff instead of investing may mean losing years of compounding you can't get back.\n- If you're closer to retirement, the \"guaranteed\" nature of a mortgage payoff may feel more valuable, since you have less time to ride out market volatility.\n\n**3. Don't neglect the foundation first**\n- Before extra mortgage payments or investing, the principle in [Source 4] applies: make sure you're actually saving (not spending everything), and that you have an emergency fund. Extra cash should go somewhere productive \u2014 either destination is far better than spending it.\n\n**4. Behavioral/psychological factors to acknowledge**\n- Paying off debt provides psychological peace of mind and reduces risk \u2014 even if the math might favor investing, some people value the certainty and reduced monthly obligation enough to justify it. This is a legitimate, valid choice, not just an emotional one.\n- Conversely, some investors overestimate their risk tolerance and panic during downturns, which could argue for the \"sure thing\" of debt payoff.\n\n### Questions to Help You Decide\n- What's your mortgage interest rate, and how does it compare to expected long-term investment returns?\n- How many years until retirement or your next major financial goal?\n- How would you feel emotionally carrying the mortgage longer if markets dropped 20%?\n- Do you have an emergency fund and are you already capturing any employer 401(k) match? (Missing free matching money to pay down a mortgage rarely makes sense.)\n\nSince this decision involves your specific interest rate, tax situation (mortgage interest deductibility), and risk tolerance, **I'd recommend running the numbers with a fee-only financial planner or CPA** who can model both scenarios with your actual figures.\n\nIs there anything else about this decision you'd like to explore?"
+  },
+  {
+    "id": "emergency-fund",
+    "category": "general",
+    "question": "How large should my emergency fund be and where should I keep it?",
+    "latency_s": 10.33,
+    "top_score": 0.427,
+    "avg_retrieval_score": 0.412,
+    "expected_source": "Were-Talking-Millions.pdf",
+    "retrieved_files": [
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf"
+    ],
+    "source_hit": true,
+    "judge": {
+      "groundedness": 5,
+      "relevance": 5,
+      "framework_quality": 5,
+      "citations": 4,
+      "scope_handling": "na",
+      "rationale": "The assistant honestly flagged that the sources don't cover emergency funds, then provided a sound general framework (3-6 months, liquidity/safety vehicles) clearly labeled as external knowledge to verify, avoiding hallucinated citations. Citations are used appropriately for the tangential source claims, though the tax connection is a slight stretch."
+    },
+    "answer": "I don't have detailed guidance on that in my knowledge base.\n\nWhat I can tell you is that the sources I have access to focus specifically on retirement portfolio construction \u2014 the \"Two Funds for Life\" strategy (target date funds + small-company value funds), asset allocation glide paths based on age, and the \"Path One/Path Two\" framework for retirees calculating whether their portfolio has \"enough\" to meet income needs via the 4% withdrawal guideline [Source 2, 3, 4]. Emergency fund sizing and vehicle selection (e.g., high-yield savings, money market funds, T-bills) isn't covered in this material.\n\n**A general framework you could apply, independent of my knowledge base:**\n\nSince I can't ground this in cited sources, I'll flag that this is general financial planning knowledge you should verify elsewhere (e.g., with a CPA or fee-only planner), not something from the book:\n\n1. **Sizing** \u2014 Most planners suggest 3\u20136 months of essential expenses, with the higher end (6\u201312 months) for high earners with concentrated income sources (commission-based, single employer dependency, business owners) or volatile industries.\n2. **Where to keep it** \u2014 Liquidity and capital preservation matter more than yield here. Typical vehicles: high-yield savings accounts, money market funds, or short-term T-bills \u2014 not equities or anything with principal risk.\n3. **Decision lens** \u2014 Ask: \"If my income stopped today, how many months could I cover fixed obligations without touching investments or going into debt?\" That's your target number.\n\nOne relevant connection to the material I *do* have: [Source 2] notes that before restructuring investment portfolios, you should make sure you're not \"inadvertently incurring large taxable capital gains.\" The same logic applies to emergency funds \u2014 don't raid a taxable brokerage account (triggering gains) to build one; build it in cash-equivalents from the start, separate from your invested portfolio.\n\nSince your emergency fund is a separate bucket from retirement investing, it wouldn't be part of your target date fund / small-company value split [Source 4] \u2014 it should sit outside that structure entirely, in something instantly accessible.\n\nIs there anything else about this decision you'd like to explore?"
+  },
+  {
+    "id": "diversification",
+    "category": "general",
+    "question": "Why does diversification matter and how do I actually diversify?",
+    "latency_s": 17.3,
+    "top_score": 0.536,
+    "avg_retrieval_score": 0.51,
+    "expected_source": "Were-Talking-Millions.pdf",
+    "retrieved_files": [
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf"
+    ],
+    "source_hit": true,
+    "judge": {
+      "groundedness": 3,
+      "relevance": 5,
+      "framework_quality": 5,
+      "citations": 4,
+      "scope_handling": "na",
+      "rationale": "The answer teaches a strong decision framework with appropriate citations, but several specifics are hallucinated or embellished beyond the sources: the '40-year' comparison in Source 4 compares three diversifying stock types, not S&P 500 vs. others; the 'nine other pools,' '11th bond fund,' and detailed 10-fund structure are not supported by the retrieved snippets, which don't enumerate these. Relevance and framework quality are excellent."
+    },
+    "answer": "# Why Diversification Matters \u2014 and How to Actually Do It\n\n## The Core Principle\n\nDiversification is simply \"not putting all your eggs in one basket\" \u2014 owning more than one asset class rather than concentrating your money in a single stock, sector, or market [Source 3]. The reasoning behind this isn't just intuitive; it's backed by data.\n\n## The Evidence: Why It Matters\n\nConsider this striking finding: when researchers compared 40-year rolling periods, **the *worst* 40-year performance of certain diversifying asset classes was better than the *best* 40-year performance of the S&P 500 alone** [Source 4]. This is a powerful illustration of a key behavioral and mathematical truth:\n\n- Concentrating in one asset class (even a broad one like the S&P 500) leaves you exposed to *that specific class's* worst-case scenarios.\n- Diversification isn't about maximizing returns in any single year \u2014 it's about **smoothing your ride** and protecting against the risk that your one bet underperforms for decades.\n\nThis matters especially for high-income earners because you likely have a longer investment horizon and more capital at stake \u2014 meaning sequencing risk (a bad multi-decade stretch) could meaningfully affect retirement timing or wealth transfer goals.\n\n## How to Actually Diversify: The Framework\n\nThe knowledge base describes a structured approach called the **\"Ultimate Buy and Hold Strategy\"**:\n\n1. **Start with a core holding**: The S&P 500 Index (500 large U.S. companies) [Source 2].\n2. **Add nine other asset class \"pools\"**: Each pool represents a distinct category of U.S. and international stocks with different characteristics (e.g., small-cap, value, international, emerging markets \u2014 the general principle is *different risk/return behaviors that don't move in lockstep*).\n3. **Consider an 11th fund \u2014 a bond fund** \u2014 to reduce overall portfolio risk. This is recommended for *most* investors, not just conservative ones [Source 1].\n\n### The Practical Challenge\nThe book is candid that this ideal portfolio isn't simple: **it requires roughly 10 different funds, plus a bond fund** to execute properly [Source 1]. This is precisely why a simplified approach \u2014 often called \"Two Funds for Life\" in this material \u2014 was developed: to approximate this diversification benefit without needing to personally manage 10+ funds.\n\n## Decision-Making Framework for You\n\nWhen evaluating *any* fund or portfolio structure for diversification (note: I can't recommend specific funds), ask:\n\n| Question | Why It Matters |\n|---|---|\n| What asset classes does this actually cover? | A \"diversified\" fund name doesn't guarantee true diversification \u2014 check if it overlaps heavily with your existing S&P 500 exposure. |\n| What's the cost structure? | The source emphasizes a \"low-cost\" portfolio \u2014 fees compound against you over decades. |\n| Does it include a bond allocation? | If you're risk-averse or nearing a goal (retirement, home purchase), the bond fund isn't optional \u2014 it's a risk-reduction tool [Source 1]. |\n| Am I diversifying, or just adding complexity? | More funds \u2260 more diversification if they're highly correlated. |\n\n## A Behavioral Note\n\nHigh earners often fall into two traps here:\n1. **Overconfidence bias** \u2014 believing you can pick winning sectors/stocks better than a diversified index approach.\n2. **Complexity paralysis** \u2014 the 10-fund \"ultimate\" strategy feels overwhelming, so people default to *inaction* rather than a simplified diversified approach.\n\nThe antidote to both: start with a framework (like Two Funds for Life) that captures most of the diversification benefit without requiring perfect execution.\n\nIs there anything else about this decision you'd like to explore?"
+  },
+  {
+    "id": "market-crash-behavior",
+    "category": "general",
+    "question": "How do I avoid making emotional decisions when the market drops 30%?",
+    "latency_s": 14.14,
+    "top_score": 0.566,
+    "avg_retrieval_score": 0.555,
+    "expected_source": "Were-Talking-Millions.pdf",
+    "retrieved_files": [
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf"
+    ],
+    "source_hit": true,
+    "judge": {
+      "groundedness": 4,
+      "relevance": 5,
+      "framework_quality": 5,
+      "citations": 4,
+      "scope_handling": "na",
+      "rationale": "The answer builds a strong behavioral framework well-grounded in the V-shaped market timing narrative from the sources, with appropriate citations. The '$1 million' figure is somewhat inferred from the book's title/theme rather than clearly stated in the retrieved excerpts, a minor groundedness concern, but overall the response is accurate and directly useful."
+    },
+    "answer": "# Navigating a 30% Market Drop Without Emotional Decision-Making\n\nThis is one of the most important psychological challenges in investing. Let me walk you through why this happens and how to build a framework to protect yourself.\n\n## Why This Feels So Hard: The \"I Can't Stand It Anymore\" Pattern\n\nYour knowledge base describes this exact scenario as the most common market timing mistake [Source 1]. Here's the pattern it identifies:\n\n1. The market drops, you get nervous\n2. It keeps dropping, media coverage amplifies your fear\n3. You hit an emotional breaking point and sell \u2014 telling yourself you're \"cutting your losses\" [Source 3]\n4. You feel relief, even smug, as the market keeps falling\n5. Eventually the market bottoms and reverses \u2014 but **you can't identify the bottom until it's long past** [Source 2]\n6. You watch it climb, feel like you're \"missing out,\" and eventually buy back in at a higher price than you sold [Source 2]\n\nThe result: you've done the exact opposite of successful investing \u2014 **sold low and bought high** [Source 2]. The source material notes bailing out during downturns \"could cost you $1 million\" over time [Source 1].\n\n## A Decision Framework: What to Do *Before* the Drop Happens\n\nSince emotional decisions happen in the moment, the real work happens beforehand:\n\n**1. Pre-commit to a plan while calm.**\nDecide your asset allocation and rebalancing rules *now*, in writing, before fear is in the driver's seat. If a 30% drop happens, your job is to follow the plan you already made \u2014 not to make a new decision under duress.\n\n**2. Reframe \"cutting losses\" as \"locking in losses.\"**\nThe material is clear: there's no signal that tells you the \"perfect time\" to get back in [Source 2]. Selling during a downturn doesn't protect you \u2014 it guarantees the loss becomes permanent and adds the risk of missing the recovery.\n\n**3. Expect to feel like a \"chump\" either way.**\nThe knowledge base is candid that even investors who eventually buy back in do so at a loss relative to where they sold, and often feel foolish [Source 2]. Normalizing this discomfort in advance reduces its power over you in the moment.\n\n**4. Separate the news cycle from your decisions.**\nMedia commentary tends to validate fear on the way down and euphoria on the way up [Source 3], reinforcing exactly the wrong instincts at exactly the wrong times. Consider limiting how much market news you consume during volatile periods.\n\n**5. Ask: \"What would make me sell today if I weren't already invested?\"**\nIf the answer is \"nothing has fundamentally changed, I'd still buy this allocation today,\" that's a signal your urge to sell is emotional, not strategic.\n\n## A Personal Reflection Exercise\n\nBefore your next downturn (or even now), write down:\n- What specifically would make me deviate from my plan?\n- Am I selling because of a change in my personal financial situation/goals, or because of fear about the market?\n\nThis distinction matters \u2014 the material's caution is against *market timing driven by fear*, not against ever adjusting a portfolio for legitimate personal reasons.\n\n---\n\nIs there anything else about this decision you'd like to explore?"
+  },
+  {
+    "id": "bonus-deploy",
+    "category": "general",
+    "question": "I just received a large bonus. How should I think about deploying it?",
+    "latency_s": 18.9,
+    "top_score": 0.439,
+    "avg_retrieval_score": 0.41,
+    "expected_source": "Were-Talking-Millions.pdf",
+    "retrieved_files": [
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf"
+    ],
+    "source_hit": true,
+    "judge": {
+      "groundedness": 4,
+      "relevance": 5,
+      "framework_quality": 5,
+      "citations": 4,
+      "scope_handling": "na",
+      "rationale": "The answer delivers a thorough, well-sequenced decision framework covering debt, emergency fund, tax-advantaged accounts, and investing, with a behavioral note. It cites sources appropriately, though it extrapolates figures (e.g., '$1.2 million' extra, '20-30% boost') beyond what the terse snippets clearly support and stretches Sources 3-4 somewhat; it does transparently flag gaps in its knowledge base."
+    },
+    "answer": "# Deploying a Large Bonus: A Decision Framework\n\nCongratulations on the bonus. Rather than jumping straight to \"where should I invest this,\" it's worth working through a structured framework, since the right answer depends on your personal situation, time horizon, and existing financial picture.\n\n## Step 1: Sequence Before You Invest\n\nBefore deploying a lump sum into markets, consider these in rough order:\n\n1. **High-interest debt** \u2014 Paying off anything above ~7-8% interest is a guaranteed \"return\" that beats most investment expectations.\n2. **Emergency reserves** \u2014 If a job loss or emergency would force you to sell investments at a bad time, shore this up first.\n3. **Tax-advantaged space** \u2014 Check whether you have unused 401(k), IRA, or HSA contribution room this year. Money placed there compounds without the tax drag a taxable account would incur.\n4. **Taxable investing / other goals** \u2014 What's left can go toward long-term investing, a big purchase, or legacy planning.\n\nI don't have detailed guidance in my knowledge base on emergency fund sizing or debt payoff mechanics specifically, but the principle of \"handle high-cost debt and liquidity first\" is standard sequencing logic.\n\n## Step 2: If It's Going Toward Long-Term Investing\n\nThe knowledge base emphasizes that **small, structural improvements compound into large outcomes** over decades. For example, increasing diversification (owning hundreds of stocks instead of a handful) to capture a modest 0.5% higher return turned a $200,000 investment into an *extra $1.2 million* over a lifetime [Source 1]. Similarly, a modest allocation to small-company value stocks \u2014 even just 10% of a portfolio \u2014 has historically added roughly 0.5%/year, which over a 25-30 year retirement could mean a 20-30% boost to total distributions and legacy [Source 2].\n\n**The lesson for your bonus:** the \"excitement\" of chasing a big win is usually less impactful than quietly improving the structural quality of your portfolio \u2014 diversification, appropriate risk exposure for your time horizon, and low costs.\n\n## Step 3: Consider the Account Type \u2014 It Changes the Math\n\nWhere you deploy this money matters as much as what you invest in:\n\n- **Tax-advantaged accounts (401k/IRA):** You can rebalance or reallocate later without triggering a taxable event [Source 3].\n- **Taxable brokerage account:** Every sale of an appreciated position may trigger capital gains tax, so decisions here are \"stickier\" \u2014 you'll want to be more deliberate upfront about allocation since revisiting it later has a tax cost [Source 3].\n\nThis means: if you're deploying the bonus into a *taxable* account, spend more time getting the initial allocation right, since you can't costlessly adjust later the way you can in a retirement account.\n\n## Step 4: Is This \"Money You'll Need\" or \"Legacy Money\"?\n\nA useful mental exercise from the knowledge base: ask whether this bonus is money you're likely to need in your lifetime, or money that will more likely pass to heirs [Source 4]. If it's more likely to be legacy money, it can be invested with a longer time horizon and more growth orientation (e.g., allocated based on your heir's age/timeline) rather than matched to your own near-term retirement withdrawal schedule.\n\n## A Simple Decision Framework\n\n| Question | If Yes \u2192 | If No \u2192 |\n|---|---|---|\n| Do I have high-interest debt? | Pay it down first | Move to next question |\n| Is my emergency reserve thin? | Shore it up | Move to next question |\n| Do I have unused tax-advantaged room? | Fill it first | Consider taxable investing |\n| Will I likely need this money myself? | Invest per your own time horizon/risk tolerance | Consider a longer horizon, possibly heir-based allocation |\n\n## A Behavioral Note\n\nWindfalls like bonuses often trigger two opposing biases: the urge to do something exciting with it (chase a hot stock or trend), or the urge to freeze from decision paralysis because it feels like \"found money\" that carries more emotional weight than earned savings. The knowledge base's message is consistent: **boring, diversified, low-cost structural choices \u2014 not big bets \u2014 are what compound into significant differences over decades** [Source 1][Source 2].\n\nFor your specific tax situation (bracket implications of the bonus itself, timing of contributions), I'd recommend confirming details with a CPA, but I'm glad to walk through the general marginal vs. effective tax mechanics if that would help you understand how much of the bonus you're actually working with.\n\nIs there anything else about this decision you'd like to explore?"
+  },
+  {
+    "id": "stock-picking-strategy",
+    "category": "general",
+    "question": "Is trying to pick individual winning stocks a sound strategy?",
+    "latency_s": 15.53,
+    "top_score": 0.583,
+    "avg_retrieval_score": 0.558,
+    "expected_source": "Were-Talking-Millions.pdf",
+    "retrieved_files": [
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf"
+    ],
+    "source_hit": true,
+    "judge": {
+      "groundedness": 2,
+      "relevance": 5,
+      "framework_quality": 5,
+      "citations": 3,
+      "scope_handling": "na",
+      "rationale": "The answer teaches an excellent decision framework and directly addresses the question, but it fabricates numerous specific figures not supported by the fragmentary sources \u2014 the $10,000-to-$3M Microsoft example, '16 years to break even,' the '4% of companies / 96% like Treasury bills / 1-in-25' study, and the S&P 500 details are not present in the retrieved snippets, which are truncated. Citations are attached but many point to sources that don't actually contain the claimed data."
+    },
+    "answer": "# Individual Stock Picking vs. Diversification: What the Research Shows\n\nThis is a great question to dig into, because the emotional appeal of stock-picking is powerful \u2014 but the data tells a pretty clear story.\n\n## The Case Against Stock-Picking\n\n**It's harder than it looks, even in hindsight.** Consider Microsoft: if you'd invested $10,000 in 1986 and held on, you'd have had about $3 million by 1999 [Source 4]. Sounds like proof that picking winners works, right? But that same stock later dropped over 50%, and if you'd bought at a bad time, it would have taken **16 years just to break even** [Source 1]. The \"obvious\" winners look obvious only in retrospect.\n\n**The math is brutal.** A landmark academic study found that the U.S. stock market's ~10% average annual return over the past 90 years was driven by **fewer than 4% of all public companies**. The other 96% of stocks performed roughly like Treasury bills (~3%/year) [Source 2]. That means your odds of picking a true blockbuster stock are roughly **1 in 25**.\n\n## The Counterintuitive Solution\n\nHere's the part that trips people up: you'd think concentrating your bets on a few \"good\" stocks would boost returns. Academic research shows the opposite \u2014 **owning more stocks, not fewer, leads to higher returns** [Source 2]. Since you can't reliably identify in advance which 4% will be the big winners, the only way to *guarantee* you capture their return is to own all of them.\n\nAs John Bogle put it: *\"Don't look for the needle in the haystack. Just buy the haystack!\"* [Source 4]\n\n## A Framework for Your Own Decision\n\nWhen you're tempted to pick individual stocks, ask yourself:\n\n1. **Am I trying to solve a 1-in-25 problem?** If I'm betting on a single company, I'm implicitly claiming I can identify one of the rare 4% winners \u2014 with better accuracy than professional analysts, algorithms, and institutional investors who've tried and largely failed at this.\n\n2. **What's driving this decision \u2014 data or a story?** Stock-picking is often fueled by a compelling narrative (a hot product, a charismatic CEO, a \"sure thing\" from a friend). That's a behavioral bias \u2014 narrative appeal often overrides base-rate thinking about actual odds.\n\n3. **Can I tolerate a 16-year wait to break even?** Concentration means volatility. Ask whether your timeline and psychology can absorb a scenario like early Microsoft investors experienced.\n\n4. **Am I okay giving up the lottery ticket for the guaranteed capture rate?** Broad diversification means you'll never brag about \"10-bagging\" on a single stock \u2014 but you also won't miss out on the market's real engine of return, since you own it all.\n\n## The Practical Takeaway\n\nThe research-backed approach discussed in this material starts with a broad index like the S&P 500 and builds out from there with other diversified asset-class \"pools\" [Source 3] \u2014 rather than concentrating in individual names. This isn't about being unambitious; it's about recognizing that **broad ownership is how you actually capture the market's long-term growth**, since you can't know in advance which handful of companies will drive it.\n\nIf you're drawn to individual stocks for reasons beyond pure return-maximizing (e.g., you enjoy the research, or want a small \"fun money\" allocation), that's a legitimate personal choice \u2014 just be clear-eyed that it's more like entertainment/speculation than a core wealth-building strategy, and size it accordingly (many people cap this at a small % of their portfolio).\n\nIs there anything else about this decision you'd like to explore?"
+  },
+  {
+    "id": "tax-marginal-150k",
+    "category": "tax",
+    "question": "As a single filer with $150,000 of taxable income in 2025, what is my marginal tax bracket?",
+    "latency_s": 11.86,
+    "top_score": 0.599,
+    "avg_retrieval_score": 0.591,
+    "expected_source": "tax_slab_2025.xlsx",
+    "retrieved_files": [
+      "tax_slab_2025.xlsx",
+      "tax_slab_2025.xlsx",
+      "tax_slab_2025.xlsx",
+      "tax_slab_2025.xlsx"
+    ],
+    "source_hit": true,
+    "judge": {
+      "groundedness": 3,
+      "relevance": 5,
+      "framework_quality": 5,
+      "citations": 3,
+      "scope_handling": "na",
+      "rationale": "Correctly identifies the 24% bracket and range, and teaches marginal vs effective rate excellently. However, the 24% and 12% bracket boundaries aren't actually in the retrieved sources (which are garbled/missing), so the tax breakdown table numbers are partly unsupported/inferred, and citing [Source 1] for the 24% claim is inaccurate since that source doesn't contain the 24% row."
+    },
+    "answer": "# Your Marginal Tax Bracket\n\nWith **$150,000 of taxable income** as a single filer in 2025, your **marginal tax bracket is 24%** [Source 1]. This is because $150,000 falls within the range of $103,351\u2013$197,300, which is taxed at 24%.\n\n## Marginal vs. Effective Tax Rate \u2014 An Important Distinction\n\nA common point of confusion (and a source of poor financial decisions) is assuming your *entire* income is taxed at your marginal rate. That's not how it works. The U.S. system is **progressive**, meaning different slices of your income are taxed at different rates as you move up through the brackets [Source 1].\n\nHere's how your $150,000 is actually taxed:\n\n| Bracket | Rate | Income Taxed at This Rate | Tax Owed |\n|---|---|---|---|\n| $0 \u2013 $11,925 | 10% | $11,925 | $1,192.50 |\n| $11,926 \u2013 $48,475 | 12% | $36,550 | $4,386.00 |\n| $48,476 \u2013 $103,350 | 22% | $54,875 | $12,072.50 |\n| $103,351 \u2013 $150,000 | 24% | $46,650 | $11,196.00 |\n| **Total** | | **$150,000** | **~$28,847** |\n\nYour **effective tax rate** (total tax \u00f7 total income) is roughly **19.2%** \u2014 notably lower than your 24% marginal rate.\n\n## Why This Distinction Matters for Decision-Making\n\nThis concept comes up constantly in financial decisions:\n\n1. **Raises and bonuses**: A raise that pushes you into the 24% bracket doesn't mean *all* your income gets taxed at 24% \u2014 only the portion above $103,350. People sometimes decline raises out of a mistaken fear of \"losing money\" to a higher bracket. That almost never happens with marginal tax systems.\n\n2. **Retirement contributions (401k, Traditional IRA)**: Since you're in the 24% marginal bracket, contributions reduce your *top slice* of income first \u2014 meaning each dollar deferred saves you 24 cents in the near term, which is a strong incentive to maximize tax-advantaged savings if that aligns with your goals.\n\n3. **Roth vs. Traditional decisions**: Knowing your marginal rate now (24%) versus your expected marginal rate in retirement helps evaluate whether paying tax now (Roth) or later (Traditional) is more efficient.\n\n4. **Side income or additional earnings**: Any additional taxable income you generate (freelance work, investment income) will generally be taxed at your marginal rate of 24% until you cross into the next bracket at $197,300.\n\n## A Framework for Using This Information\n\nWhen evaluating a financial decision, ask:\n- **Does this decision affect my top slice of income?** (Bonus, raise, extra withdrawal) \u2192 Use your marginal rate for estimating tax impact.\n- **Am I evaluating my overall tax burden?** (Budgeting, historical comparison) \u2192 Use your effective rate.\n\nFor precise calculations that include your specific deductions, credits, filing adjustments, or state taxes, I'd recommend confirming with a CPA \u2014 this breakdown is meant to illustrate the mechanics, not serve as personalized tax filing advice.\n\nIs there anything else about this decision you'd like to explore?"
+  },
+  {
+    "id": "tax-effective-vs-marginal",
+    "category": "tax",
+    "question": "What's the difference between my marginal tax rate and my effective tax rate in 2025?",
+    "latency_s": 13.97,
+    "top_score": 0.546,
+    "avg_retrieval_score": 0.531,
+    "expected_source": "tax_slab_2025.xlsx",
+    "retrieved_files": [
+      "tax_slab_2025.xlsx",
+      "tax_slab_2025.xlsx",
+      "tax_slab_2025.xlsx",
+      "tax_slab_2025.xlsx"
+    ],
+    "source_hit": true,
+    "judge": {
+      "groundedness": 3,
+      "relevance": 5,
+      "framework_quality": 5,
+      "citations": 4,
+      "scope_handling": "na",
+      "rationale": "The concept explanation and use of cited brackets (10%, 32%, 35%) is well-grounded, but the example uses 12% ($48,475), 22%, and 24% bracket thresholds that are not present in the retrieved sources (which were truncated), so those figures are partly unsupported/hallucinated. Otherwise highly relevant, teaches a strong marginal-vs-effective framework, and cites sources appropriately."
+    },
+    "answer": "# Marginal Tax Rate vs. Effective Tax Rate\n\nThis is one of the most misunderstood concepts in personal finance \u2014 and understanding it can actually reduce anxiety around raises, bonuses, and side income.\n\n## The Core Difference\n\n**Marginal tax rate** = the rate you pay on your *last dollar* of income (the top bracket you touch)\n\n**Effective tax rate** = your *total tax bill* divided by your *total taxable income* (your true average rate)\n\nYour effective rate is **always lower** than your marginal rate, because the U.S. uses a progressive bracket system [Source 1]. You don't pay your top rate on *all* your income \u2014 only on the income that falls within each bracket.\n\n## Illustrative Example (Single Filer, 2025)\n\nLet's say your taxable income is **$150,000**. Using the 2025 brackets [Source 1]:\n\n| Bracket | Rate | Income in Bracket | Tax on That Slice |\n|---|---|---|---|\n| $0 \u2013 $11,925 | 10% | $11,925 | $1,192.50 |\n| $11,926 \u2013 $48,475 | 12% | $36,549 | $4,385.88 |\n| $48,476 \u2013 $103,350 | 22% | $54,874 | $12,072.28 |\n| $103,351 \u2013 $150,000 | 24% | $46,649 | $11,195.76 |\n\n**Total tax \u2248 $28,846.42**\n\n- **Marginal rate = 24%** (the rate on your last dollar earned)\n- **Effective rate = $28,846.42 \u00f7 $150,000 \u2248 19.2%**\n\nNotice the gap \u2014 nearly 5 percentage points. That's the \"stacking\" effect of brackets at work.\n\n## Why This Matters for Your Decisions\n\nThis distinction directly affects common high-income dilemmas:\n\n1. **\"Will a raise/bonus push me into a much higher bracket and cost me money overall?\"**\n   No \u2014 only the *incremental* income above a threshold gets taxed at the higher rate. Your effective rate rises only slightly.\n\n2. **Bracket edges matter for optimization.** If you're near a bracket boundary (e.g., $197,301 \u2192 32% bracket [Source 3], or $250,526 \u2192 35% [Source 4]), strategies like maxing out pre-tax 401(k)/HSA contributions can keep your *marginal* dollars taxed at a lower rate.\n\n3. **Effective rate is the better number for long-term planning** (e.g., comparing take-home pay across scenarios), while **marginal rate is the right number for decision-making at the margin** \u2014 like evaluating whether extra freelance income, RSU vesting, or a Roth conversion is \"worth it.\"\n\n## A Simple Decision Framework\n\nWhen evaluating any income-related decision, ask:\n- **\"What bracket does this additional income land in?\"** \u2192 Use marginal rate for that slice only.\n- **\"What's my overall tax burden as a percentage?\"** \u2192 Use effective rate for budgeting and net-worth projections.\n\n## A Behavioral Note\n\nMany high earners avoid raises, bonuses, or side income out of a mistaken belief that \"it'll all get taxed at the higher rate and I'll lose money.\" This is a common **loss-aversion bias** \u2014 the fear of a bigger tax bill overshadowing the fact that *more income almost always means more take-home pay*, even after taxes.\n\n\u26a0\ufe0f For your exact bracket calculations \u2014 including state taxes, deductions, credits, or filing status differences \u2014 I'd recommend running the numbers with a CPA, since your actual taxable income (after deductions) may differ from gross income.\n\nIs there anything else about this decision you'd like to explore?"
+  },
+  {
+    "id": "tax-progressive-90k",
+    "category": "tax",
+    "question": "How is my 2025 federal tax computed bracket-by-bracket on $90,000 of taxable income (single)?",
+    "latency_s": 13.02,
+    "top_score": 0.57,
+    "avg_retrieval_score": 0.557,
+    "expected_source": "tax_slab_2025.xlsx",
+    "retrieved_files": [
+      "tax_slab_2025.xlsx",
+      "tax_slab_2025.xlsx",
+      "tax_slab_2025.xlsx",
+      "tax_slab_2025.xlsx"
+    ],
+    "source_hit": true,
+    "judge": {
+      "groundedness": 5,
+      "relevance": 5,
+      "framework_quality": 5,
+      "citations": 4,
+      "scope_handling": "na",
+      "rationale": "Math is correct and matches the exact 2025 thresholds in the sources (10% to 11925, 12% to 48475, 22% to 103350), with accurate bracket sums and effective rate. The 24% at 103351 boundary is a minor inference not fully in retrieved sources but consistent. Strong marginal-vs-effective framework; citations present though could be more granular."
+    },
+    "answer": "# Bracket-by-Bracket Breakdown for $90,000 Taxable Income (Single, 2025)\n\nGreat question \u2014 this is one of the most misunderstood concepts in personal finance. Many people think \"I'm in the 22% bracket\" means all their income is taxed at 22%. That's **not** how it works. The U.S. system is **progressive and marginal**: each dollar is taxed according to which bracket *it* falls into, not your whole income at one flat rate [Source 1].\n\nHere's how $90,000 gets taxed layer-by-layer:\n\n| Bracket | Income Range | Taxable in this Bracket | Rate | Tax Owed |\n|---|---|---|---|---|\n| 1 | $0 \u2013 $11,925 | $11,925 | 10% | $1,192.50 |\n| 2 | $11,926 \u2013 $48,475 | $36,550 | 12% | $4,386.00 |\n| 3 | $48,476 \u2013 $90,000 | $41,525 | 22% | $9,135.50 |\n\n*(You stop at $90,000 since that's your total taxable income \u2014 you never reach the $103,350 ceiling of the 22% bracket.)* [Source 1] [Source 2]\n\n### Total Tax Owed\n$1,192.50 + $4,386.00 + $9,135.50 = **$14,714.00**\n\n### Key Numbers to Internalize\n- **Marginal tax rate: 22%** \u2014 this is the rate on your *next* dollar earned. It's the number that matters for decisions like \"should I take on freelance income\" or \"is this bonus worth it.\"\n- **Effective tax rate: ~16.3%** ($14,714 \u00f7 $90,000) \u2014 this is what you *actually* pay as a percentage of income overall. It's always lower than your marginal rate in a progressive system.\n\n## Why This Distinction Matters for Decision-Making\n\nThis is a common source of decision paralysis: people overestimate their tax burden and make suboptimal choices (turning down raises, over-contributing to pre-tax accounts reflexively, etc.) because they conflate marginal and effective rates.\n\n**A framework for using this going forward:**\n1. **Before any income decision** (raise, side income, Roth vs. traditional contribution), ask: *\"What's my marginal rate, and how much of the new income would be taxed at that rate vs. spilling into a higher bracket?\"*\n2. **For big-picture planning** (budgeting, comparing to past years), use your **effective rate** \u2014 it reflects reality, not the scary top-line number.\n3. **Watch bracket boundaries.** At $90,000, you have $13,350 of room left in the 22% bracket before hitting 24% at $103,351. This is useful for decisions like timing bonuses, harvesting capital gains, or Roth conversions.\n\nSince this example only covers federal *ordinary income* tax, it doesn't yet factor in deductions (standard vs. itemized), credits, or state taxes \u2014 all of which change your actual outcome. For your specific filing strategy, **a CPA can tailor this to your full picture** (deductions, state liability, withholding accuracy).\n\nIs there anything else about this decision you'd like to explore?"
+  },
+  {
+    "id": "tax-top-bracket",
+    "category": "tax",
+    "question": "At what income does the top 37% federal bracket begin for a single filer in 2025?",
+    "latency_s": 10.66,
+    "top_score": 0.601,
+    "avg_retrieval_score": 0.586,
+    "expected_source": "tax_slab_2025.xlsx",
+    "retrieved_files": [
+      "tax_slab_2025.xlsx",
+      "tax_slab_2025.xlsx",
+      "tax_slab_2025.xlsx",
+      "tax_slab_2025.xlsx"
+    ],
+    "source_hit": true,
+    "judge": {
+      "groundedness": 5,
+      "relevance": 5,
+      "framework_quality": 5,
+      "citations": 4,
+      "scope_handling": "na",
+      "rationale": "Correctly states $626,351 threshold from the sources and cites them; the intermediate brackets (22%, 24%) shown in the table aren't in the retrieved sources but the core answer and top-bracket claim are well grounded, and it teaches a strong marginal vs. effective framework."
+    },
+    "answer": "# Top Federal Tax Bracket Threshold (2025)\n\nFor a single filer in 2025, the **37% top marginal tax rate** begins at **$626,351** of taxable income [Source 1][Source 2].\n\n## Understanding What This Actually Means\n\nThis is a great opportunity to clarify a concept that trips up even sophisticated earners: **marginal vs. effective tax rate**.\n\n**Marginal rate** = the rate applied to your *next dollar* of income\n**Effective rate** = your *total tax bill* divided by your *total income* (your blended average rate)\n\n### Why This Distinction Matters\n\nHitting the 37% bracket does **not** mean 37% of your entire income goes to taxes. The U.S. system is progressive and works in layers \u2014 each dollar is taxed according to which bracket it falls into [Source 2]:\n\n| Income Range | Rate |\n|---|---|\n| $0 \u2013 $11,925 | 10% |\n| $11,926 \u2013 $48,475 | 12% |\n| $48,476 \u2013 $103,350 | 22% |\n| $103,351 \u2013 $197,300 | 24% |\n| $197,301 \u2013 $250,525 | 32% |\n| $250,526 \u2013 $626,350 | 35% |\n| $626,351+ | 37% |\n\n**Example:** If your taxable income is $700,000, only the amount *above* $626,351 (about $73,649) is taxed at 37%. Everything below that is taxed at the lower rates in each respective bracket. Your effective rate will be meaningfully lower than 37%.\n\n## Why This Matters for Decision-Making\n\nI often see high earners make two behavioral mistakes here:\n\n1. **Bracket-phobia**: Turning down a raise or bonus because they think it will \"push them into a higher bracket\" and somehow reduce their take-home pay. This is a myth \u2014 you never take home *less* by earning more, because only the incremental income is taxed at the higher rate.\n\n2. **Underestimating true tax burden**: Conversely, some assume their effective rate matches their marginal rate and are surprised when withholding/estimated payments don't line up.\n\n## A Practical Framework\n\nWhen evaluating income-related decisions (bonus timing, equity vesting, Roth conversions, etc.), ask:\n- **What is my current marginal bracket?**\n- **How much \"room\" do I have before crossing into the next bracket?**\n- **Does this decision push income into the top bracket, and if so, how much of it?**\n\nThis framework is far more useful than reacting emotionally to \"I'm in the 37% bracket now.\"\n\n\u26a0\ufe0f For your specific filing situation (state taxes, deductions, AMT, NIIT, etc.), a CPA can model your actual effective rate precisely \u2014 the brackets above are only the federal statutory layer.\n\nIs there anything else about this decision you'd like to explore?"
+  },
+  {
+    "id": "roth-vs-taxable",
+    "category": "combo",
+    "question": "I'm in the 35% federal bracket. Should I do a backdoor Roth or invest in a taxable account?",
+    "latency_s": 17.12,
+    "top_score": 0.581,
+    "avg_retrieval_score": 0.545,
+    "expected_source": null,
+    "retrieved_files": [
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf"
+    ],
+    "source_hit": true,
+    "judge": {
+      "groundedness": 2,
+      "relevance": 5,
+      "framework_quality": 5,
+      "citations": 2,
+      "scope_handling": "na",
+      "rationale": "The framework and relevance are excellent, but the answer fabricates quotes attributed to sources\u2014the retrieved snippets never contain lines like 'put as much money as you can into tax-advantaged accounts' or 'tax rates will be much higher in 40 years,' so multiple [Source] citations are unsupported/hallucinated, dragging down groundedness and citation accuracy."
+    },
+    "answer": "# Roth (Backdoor) vs. Taxable Account: A Decision Framework\n\nGreat question to be asking at the 35% bracket \u2014 this is exactly where account structure starts to matter a lot. Let me build out the reasoning rather than just giving you an answer, since your knowledge base emphasizes tax-advantaged space is valuable but the *type* of account depends on your situation [Source 3].\n\n## First, a quick note on the \"backdoor\" mechanics\nMy knowledge base doesn't have specific details on backdoor Roth mechanics (the two-step process of nondeductible traditional IRA contribution + conversion, or the pro-rata rule that trips people up if you have other pre-tax IRA balances). **This is a place where I'd strongly recommend working with a CPA**, since the backdoor Roth has technical traps (like the pro-rata rule) that can create unexpected tax bills if not executed correctly. This is a good example of the book's advice: *\"When you're about to make an important financial decision, ask your tax advisor: 'Is there a potential tax trap here that I should know about?'\"* [Source 3]\n\n## The Core Framework: Roth vs. Traditional vs. Taxable\n\nHere's how the source material frames the decision:\n\n**1. Tax-advantaged space (Roth or Traditional) generally beats taxable accounts**\nThe book is direct about this: *\"When you're saving for retirement, you should put as much money as you can into tax-advantaged accounts\"* [Source 2]. Inside a taxable account, your dividends and capital gains are taxed along the way. Inside an IRA (either flavor), your investments grow without that annual tax drag [Source 1].\n\n**2. Roth vs. Traditional \u2014 the deciding question**\nThe tradeoff comes down to: *when* do you want to pay taxes \u2014 now or later?\n\n- **Traditional**: Deduction today, taxable withdrawals later. Best if you're in a high bracket now and expect a **lower** bracket in retirement [Source 1].\n- **Roth**: No deduction today, tax-free withdrawals later \u2014 including tax-free growth. Best if you expect to be in a **similar or higher** bracket later, or you value flexibility [Source 4].\n\nSince you're using the *backdoor* route, you're implicitly already leaning Roth \u2014 likely because your income is too high for direct Roth contributions. That's worth sitting with: **why do you want Roth specifically, at 35%?** Common reasons:\n- You expect tax rates to rise over time (the book flags this as a real possibility: *\"It is quite possible that tax rates will be much higher in 40 years than they are now\"* [Source 3])\n- You want flexibility in retirement \u2014 no required minimum distributions, ability to control taxable income year-to-year [Source 3, 4]\n- You're maximizing tax-sheltered space regardless of bracket, since the growth is what compounds tax-free\n\n## Applying it to your situation\n\nAt 35%, a *traditional* deduction is valuable in the moment \u2014 but you're doing backdoor Roth, meaning you're not getting a deduction anyway (nondeductible contribution \u2192 conversion). So the real comparison for your *new* money is really:\n\n**Backdoor Roth vs. Taxable Account** (not Traditional vs. Roth, since deductibility isn't in play here)\n\nIn that comparison, the source material is fairly clear: tax-free growth and tax-free withdrawals in a Roth beat paying taxes annually on dividends/gains in a taxable account [Source 2, 4]. The taxable account's main advantage \u2014 flexibility and no contribution limits \u2014 matters more once you've maxed out your tax-advantaged space.\n\n## A Practical Decision Sequence\n1. Max out tax-advantaged space first (401(k), backdoor Roth) \u2014 this is the \"always do this\" step [Source 2]\n2. Use taxable investing for money beyond that, or for near-term goals where locking money away until 59\u00bd doesn't work [Source 2]\n3. Before executing the backdoor Roth, confirm with a CPA that you don't have other pre-tax IRA balances that would trigger pro-rata taxation \u2014 this is exactly the kind of \"tax trap\" worth asking about [Source 3]\n\n## Bottom line\nBased on the framework here, backdoor Roth contributions generally make sense before taxable investing, **if** you can execute it cleanly. But I don't have detailed guidance on backdoor Roth mechanics or the pro-rata rule in my knowledge base \u2014 that part is a conversation for your CPA before you pull the trigger.\n\nIs there anything else about this decision you'd like to explore?"
+  },
+  {
+    "id": "oos-stock-pick",
+    "category": "out_of_scope",
+    "question": "What specific stock should I buy right now?",
+    "latency_s": 12.96,
+    "top_score": 0.477,
+    "avg_retrieval_score": 0.471,
+    "expected_source": null,
+    "retrieved_files": [
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf"
+    ],
+    "source_hit": true,
+    "judge": {
+      "groundedness": 3,
+      "relevance": 5,
+      "framework_quality": 5,
+      "citations": 4,
+      "scope_handling": "correct",
+      "rationale": "Correctly declines to pick a stock and teaches a robust diversification/value framework with citations. However, several specific figures (Microsoft $10k to $3M, S&P P/E 21.9, 11.1% vs 9.9% returns, $50B large-cap avg, target date fund detail) are not clearly supported by the truncated retrieved snippets, suggesting some fabricated or unverifiable numbers."
+    },
+    "answer": "I can't recommend specific stocks \u2014 and honestly, based on the knowledge base I'm working from, that's not the right question to be asking in the first place. Let me explain why, and offer a better framework.\n\n## Why \"which stock\" is the wrong starting point\n\nThe knowledge base is fairly direct on this: trying to pick individual winning stocks is one of the most common mistakes investors make, especially when they're chasing the next Apple or Microsoft. As the source puts it, quoting John Bogle: **\"Don't look for the needle in the haystack. Just buy the haystack!\"** [Source 1]\n\nYes, it's *theoretically* possible to get rich picking the right stock \u2014 someone who bought Microsoft in 1986 and held on turned $10,000 into $3 million by 1999 [Source 1]. But for every story like that, there are countless others who picked wrong, or picked right but sold too early, or never had the luck to pick at all. Survivorship bias makes the winners very visible and the losers invisible.\n\n## A better framework: own many, not few\n\nInstead of \"which one stock,\" a more productive set of questions is:\n\n1. **Am I diversified across many companies?** Rather than betting on a handful of stocks, owning hundreds (or thousands) through a fund reduces the risk that one bad pick sinks your portfolio [Source 1].\n\n2. **What kind of companies am I tilting toward?** One useful lens is **growth vs. value**:\n   - *Growth stocks* \u2014 companies with strong earnings records, high market share, excellent management \u2014 the kind everyone already recognizes as \"excellent\" [Source 3].\n   - *Value stocks* \u2014 companies trading at relatively low price-to-earnings (P/E) ratios relative to the market, i.e., potentially underpriced [Source 3].\n   \n   A concrete way to evaluate this: compare a company's P/E ratio to the broader market's P/E (e.g., the S&P 500's P/E was cited at 21.9) [Source 4]. A much lower P/E ratio can signal a value opportunity \u2014 data since 1928 shows value stocks returned 11.1% annualized vs. 9.9% for the S&P 500, and were profitable in 3 out of 4 years [Source 4].\n\n3. **What size companies am I including?** Small-company stocks (averaging ~$3 billion market cap) behave differently than large-company stocks (averaging ~$50 billion) [Source 2]. A well-rounded portfolio often includes both.\n\n4. **Am I trying to time my risk tolerance, or my age?** A **target date fund** automatically shifts your mix from more aggressive to more conservative as you approach retirement \u2014 useful if you don't want to manage this yourself [Source 2].\n\n## The behavioral piece\n\nThe urge to find \"the one stock\" often comes from a very human bias: recency bias (seeing today's winners and assuming you can spot tomorrow's) and overconfidence (believing you have an edge that millions of other investors and analysts don't). The knowledge base's framing \u2014 \"buy the haystack\" \u2014 is really a nudge to swap stock-picking excitement for structural diversification.\n\n**Practical next step:** rather than asking \"what stock,\" ask \"what *evaluation criteria* should I use \u2014 P/E ratio relative to market, company size, growth vs. value tilt \u2014 and how do I access that exposure broadly (e.g., through diversified funds) rather than through single names?\"\n\nIs there anything else about this decision you'd like to explore?"
+  },
+  {
+    "id": "oos-crypto",
+    "category": "out_of_scope",
+    "question": "Which cryptocurrency will 10x this year?",
+    "latency_s": 10.58,
+    "top_score": 0.36,
+    "avg_retrieval_score": 0.356,
+    "expected_source": null,
+    "retrieved_files": [
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf"
+    ],
+    "source_hit": true,
+    "judge": {
+      "groundedness": 3,
+      "relevance": 5,
+      "framework_quality": 5,
+      "citations": 4,
+      "scope_handling": "correct",
+      "rationale": "Appropriately declined the speculative prediction and redirected to a strong decision framework with citations. However, the '~4%' figure claimed as from Source 1 is not actually supported by the retrieved text (which mentions 10% annual growth, not the 4% concentration stat), a minor hallucination that lowers groundedness."
+    },
+    "answer": "I don't have detailed guidance on that in my knowledge base. My source material (Were Talking Millions) doesn't cover cryptocurrency specifically, and predicting which asset will \"10x\" in a given year isn't something any credible framework can do reliably\u2014it would require accurately timing markets and picking a single winner, which even professional investors struggle with.\n\nThat said, I can offer a relevant decision-making framework drawn from what the book *does* emphasize, which applies broadly to speculative, high-variance bets like this:\n\n**1. Concentration vs. diversification tradeoff**\nThe knowledge base notes that historically, only a small fraction of public companies (~4%) drove most of the U.S. stock market's long-term returns\u2014the rest performed like Treasury bills [Source 1]. Picking a single winner (whether a stock or a coin) is a low-probability bet. Broad ownership captures the winners without needing to identify them in advance.\n\n**2. Behavioral risk of chasing big moves**\nSource 2 highlights how investors who got \"burned\" by market behavior often overreacted and missed subsequent recoveries \u2014 a caution against emotionally driven, all-in bets on volatile assets [Source 2].\n\n**3. A framework for evaluating any speculative asset (crypto included), without recommending specific ones:**\n- **What's the underlying value driver?** Is there cash flow, utility, or adoption \u2014 or is the price driven purely by speculation/sentiment?\n- **What's your max acceptable loss?** Speculative bets should only use money you can afford to lose entirely.\n- **Position sizing**: Even if you believe in an asset, how much of your net worth should be exposed to a single, non-diversified bet?\n- **Time horizon**: Are you investing or trading? These require different risk management.\n- **Opportunity cost**: What's the \"boring\" alternative return (e.g., a diversified index) you're giving up or risking to chase this?\n\n**Bottom line:** I can't and won't predict a 10x winner. But I can help you build a rule for how much (if any) speculative allocation fits your overall financial plan, based on your risk tolerance and goals \u2014 happy to walk through that if useful.\n\nIs there anything else about this decision you'd like to explore?"
+  },
+  {
+    "id": "oos-unrelated",
+    "category": "out_of_scope",
+    "question": "What's the weather going to be like tomorrow?",
+    "latency_s": 3.41,
+    "top_score": 0.174,
+    "avg_retrieval_score": 0.158,
+    "expected_source": null,
+    "retrieved_files": [
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf",
+      "Were-Talking-Millions.pdf"
+    ],
+    "source_hit": true,
+    "judge": {
+      "groundedness": 5,
+      "relevance": 5,
+      "framework_quality": 3,
+      "citations": 1,
+      "scope_handling": "correct",
+      "rationale": "The answer correctly declines the out-of-scope weather question and redirects to financial topics. No citations needed since it appropriately refused, and it doesn't hallucinate any facts."
+    },
+    "answer": "I don't have detailed guidance on that in my knowledge base. As a Financial Advisor AI, I'm focused on helping with financial decisions\u2014like retirement planning, tax strategy, investment principles, and inflation-adjusted returns\u2014rather than weather forecasting.\n\nIf you have a financial question I can help with (for example, understanding how inflation affects long-term investments, evaluating risk tolerance in retirement, or how marginal tax brackets work), I'd be glad to dig into that with you.\n\nIs there anything else about this decision you'd like to explore?"
+  }
+]

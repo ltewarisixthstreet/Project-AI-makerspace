@@ -29,6 +29,7 @@ dependencies = [
     "redis",
     "requests",
     "openpyxl>=3.1.5",
+    "rank-bm25>=0.2.2",
 ]
 
 [project.optional-dependencies]
