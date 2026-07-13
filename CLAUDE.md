@@ -60,6 +60,28 @@ Set `NEXT_PUBLIC_API_URL` to the backend URL.
 ### Tests
 `pytest` and `httpx`/`black` are listed as dev dependencies, but **no test files exist yet**. `TASK_4_BUILD.md` and `IMPLEMENTATION_SUMMARY.md` contain manual test checklists and curl-based validation only.
 
+## Deployment
+
+Live deployment: **backend on Render, frontend on Vercel** (the FastAPI backend is a persistent process that builds the vector store at startup, so it is *not* a fit for Vercel serverless).
+
+- Frontend (Vercel): https://project-ai-makerspace.vercel.app
+- Backend (Render): https://financial-advisor-backend-sifv.onrender.com (health: `/health`)
+
+### Backend → Render
+1. render.com → **New → Blueprint** → select this repo. Render reads `render.yaml` (service `financial-advisor-backend`, `startCommand: python backend_main.py`, health check `/health`, Python pinned via `PYTHON_VERSION`).
+2. Set the `sync: false` secrets in the dashboard: `OPENAI_API_KEY`, `ANTHROPIC_API_KEY` (and optionally `TAVILY_API_KEY`).
+3. Deploy, then verify `https://<backend>/health` returns `rag_ready: true`.
+4. The app binds `$PORT` (Render-provided) via `os.getenv("PORT")` in `backend_main.py`.
+
+Free-tier caveat: the instance spins down when idle and **re-embeds the entire PDF on every cold start** (slow first request + repeated OpenAI embedding cost). In-process session dicts are also wiped on restart.
+
+### Frontend → Vercel
+1. vercel.com → import this repo → **set Root Directory = `frontend`** (critical — otherwise Vercel scans the repo root, detects `backend_main.py`, and fails with "No FastAPI entrypoint found").
+2. Add env var **`NEXT_PUBLIC_API_URL`** = the Render backend URL (no trailing slash). This is a `NEXT_PUBLIC_*` var, so it is **inlined at build time** — changing it requires a **redeploy** (uncheck "Use existing Build Cache").
+3. For a public URL: **Settings → Deployment Protection → Vercel Authentication → Disabled** (otherwise the site 302-redirects to Vercel SSO), and use the stable production domain, not the per-deployment hash URL.
+
+CORS: the backend currently allows all origins (`allow_origins=["*"]` in `backend_main.py`); tighten to the Vercel domain for production.
+
 ## Working notes
 
 - **`requirements.txt` vs `requirements_no_hash.txt`**: the former is the pinned install target; the latter is an unpinned convenience list that also adds `jupyter`/`notebook`.
