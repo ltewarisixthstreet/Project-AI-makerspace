@@ -1,0 +1,107 @@
+[
+  {
+    "id": "alloc-horizon",
+    "category": "general",
+    "question": "What's a realistic asset allocation for someone in their 30s with a long time horizon?",
+    "expected_source": "Were-Talking-Millions.pdf",
+    "expected": "Explain an equity/bond mix framework tied to horizon and risk tolerance; not a single number."
+  },
+  {
+    "id": "debt-vs-invest",
+    "category": "general",
+    "question": "Should I pay off my mortgage early or invest the extra cash?",
+    "expected_source": "Were-Talking-Millions.pdf",
+    "expected": "Give a decision framework: compare mortgage rate vs expected return, plus psychology; not a flat yes/no."
+  },
+  {
+    "id": "emergency-fund",
+    "category": "general",
+    "question": "How large should my emergency fund be and where should I keep it?",
+    "expected_source": "Were-Talking-Millions.pdf",
+    "expected": "Discuss months-of-expenses guidance and liquidity/safety of the holding."
+  },
+  {
+    "id": "diversification",
+    "category": "general",
+    "question": "Why does diversification matter and how do I actually diversify?",
+    "expected_source": "Were-Talking-Millions.pdf",
+    "expected": "Explain risk reduction and practical diversification across asset classes."
+  },
+  {
+    "id": "market-crash-behavior",
+    "category": "general",
+    "question": "How do I avoid making emotional decisions when the market drops 30%?",
+    "expected_source": "Were-Talking-Millions.pdf",
+    "expected": "Acknowledge behavioral biases (loss aversion, FOMO) and give a framework to stay disciplined."
+  },
+  {
+    "id": "bonus-deploy",
+    "category": "general",
+    "question": "I just received a large bonus. How should I think about deploying it?",
+    "expected_source": "Were-Talking-Millions.pdf",
+    "expected": "Framework covering debt, emergency fund, tax-advantaged accounts, and investing; not a single instruction."
+  },
+  {
+    "id": "stock-picking-strategy",
+    "category": "general",
+    "question": "Is trying to pick individual winning stocks a sound strategy?",
+    "expected_source": "Were-Talking-Millions.pdf",
+    "expected": "Explain difficulty of stock-picking and evaluation methods; may favor diversified/low-cost approaches."
+  },
+  {
+    "id": "tax-marginal-150k",
+    "category": "tax",
+    "question": "As a single filer with $150,000 of taxable income in 2025, what is my marginal tax bracket?",
+    "expected_source": "tax_slab_2025.xlsx",
+    "expected": "Identify the 24% bracket ($103,351-$197,300) using the 2025 brackets."
+  },
+  {
+    "id": "tax-effective-vs-marginal",
+    "category": "tax",
+    "question": "What's the difference between my marginal tax rate and my effective tax rate in 2025?",
+    "expected_source": "tax_slab_2025.xlsx",
+    "expected": "Explain marginal (last dollar) vs effective (blended) using the progressive 2025 brackets."
+  },
+  {
+    "id": "tax-progressive-90k",
+    "category": "tax",
+    "question": "How is my 2025 federal tax computed bracket-by-bracket on $90,000 of taxable income (single)?",
+    "expected_source": "tax_slab_2025.xlsx",
+    "expected": "Walk through 10%/12%/22% portions using the exact 2025 thresholds and sum them."
+  },
+  {
+    "id": "tax-top-bracket",
+    "category": "tax",
+    "question": "At what income does the top 37% federal bracket begin for a single filer in 2025?",
+    "expected_source": "tax_slab_2025.xlsx",
+    "expected": "State $626,351 and up, from the 2025 brackets."
+  },
+  {
+    "id": "roth-vs-taxable",
+    "category": "combo",
+    "question": "I'm in the 35% federal bracket. Should I do a backdoor Roth or invest in a taxable account?",
+    "expected_source": null,
+    "expected": "Decision framework weighing tax-advantaged growth vs flexibility; may reference brackets and principles."
+  },
+  {
+    "id": "oos-stock-pick",
+    "category": "out_of_scope",
+    "question": "What specific stock should I buy right now?",
+    "expected_source": null,
+    "expected": "Decline to recommend specific securities and redirect to an evaluation framework."
+  },
+  {
+    "id": "oos-crypto",
+    "category": "out_of_scope",
+    "question": "Which cryptocurrency will 10x this year?",
+    "expected_source": null,
+    "expected": "Decline speculative/specific predictions; redirect to principles or state it's outside the knowledge base."
+  },
+  {
+    "id": "oos-unrelated",
+    "category": "out_of_scope",
+    "question": "What's the weather going to be like tomorrow?",
+    "expected_source": null,
+    "expected": "State it's outside the financial knowledge base and doesn't have that information."
+  }
+]
