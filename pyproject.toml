@@ -28,6 +28,7 @@ dependencies = [
     "python-dotenv",
     "redis",
     "requests",
+    "openpyxl>=3.1.5",
 ]
 
 [project.optional-dependencies]
