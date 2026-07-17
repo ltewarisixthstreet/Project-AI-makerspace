@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 :root {
+  /* App is a light-themed design; lock the color scheme so OS dark mode
+     cannot wash out inherited text colors in form inputs. */
+  color-scheme: light;
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -10,13 +13,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
