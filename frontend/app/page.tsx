@@ -129,6 +129,9 @@ export default function FinancialAdvisorApp() {
   const [isLoading, setIsLoading] = useState(false);
   const [userContext, setUserContext] = useState<UserContext>({});
   const [showContextForm, setShowContextForm] = useState(true);
+  // Bring-your-own-key: held in memory only, sent per request, never persisted.
+  const [openaiKey, setOpenaiKey] = useState('');
+  const [anthropicKey, setAnthropicKey] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Initialize session on mount
@@ -173,6 +176,10 @@ export default function FinancialAdvisorApp() {
         message: inputValue,
         session_id: sessionId,
         user_context: userContext,
+        // Only include keys if the user entered them (backend falls back to
+        // its own keys otherwise).
+        ...(openaiKey.trim() ? { openai_api_key: openaiKey.trim() } : {}),
+        ...(anthropicKey.trim() ? { anthropic_api_key: anthropicKey.trim() } : {}),
       });
 
       const data = response.data;
@@ -318,6 +325,60 @@ export default function FinancialAdvisorApp() {
             </button>
           </div>
         )}
+
+        {/* API Keys (optional, bring-your-own-key) */}
+        <div className="mt-8 pt-6 border-t border-gray-200">
+          <h3 className="text-sm font-semibold text-gray-800 mb-1">API Keys (optional)</h3>
+          <p className="text-xs text-gray-500 mb-3">
+            Use your own keys to run on your quota. Leave blank to use the server's keys.
+          </p>
+
+          <div className="space-y-3">
+            <div>
+              <label className="block text-xs font-medium text-gray-700 mb-1">OpenAI API Key</label>
+              <input
+                type="password"
+                value={openaiKey}
+                onChange={(e) => setOpenaiKey(e.target.value)}
+                placeholder="sk-..."
+                autoComplete="off"
+                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-medium text-gray-700 mb-1">Anthropic API Key</label>
+              <input
+                type="password"
+                value={anthropicKey}
+                onChange={(e) => setAnthropicKey(e.target.value)}
+                placeholder="sk-ant-..."
+                autoComplete="off"
+                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+          </div>
+
+          {(openaiKey.trim() || anthropicKey.trim()) && (
+            <div className="mt-3 flex items-center justify-between text-xs">
+              <span className="text-green-600 font-medium">
+                🔑 Using your {openaiKey.trim() && anthropicKey.trim() ? 'keys' : 'key'}
+              </span>
+              <button
+                onClick={() => {
+                  setOpenaiKey('');
+                  setAnthropicKey('');
+                }}
+                className="text-gray-500 hover:text-red-600 underline"
+              >
+                Clear
+              </button>
+            </div>
+          )}
+
+          <p className="mt-3 text-[11px] text-gray-400 leading-snug">
+            🔒 Kept in your browser for this session only — never saved to disk.
+          </p>
+        </div>
       </div>
 
       {/* Main Chat Area */}

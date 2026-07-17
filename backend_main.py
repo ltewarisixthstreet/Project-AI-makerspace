@@ -111,6 +111,11 @@ class ChatRequest(BaseModel):
     message: str
     session_id: Optional[str] = None
     user_context: Optional[UserContext] = None
+    # Optional per-request "bring your own key" overrides. When supplied, the
+    # user's OpenAI key embeds the query and their Anthropic key generates the
+    # answer. Kept out of the session store and never logged.
+    openai_api_key: Optional[str] = None
+    anthropic_api_key: Optional[str] = None
 
 
 class ChatResponse(BaseModel):
@@ -244,12 +249,12 @@ User Question: {question}
 
 Provide a thoughtful, personalized response that teaches decision-making."""
 
-        rag_prompt = ChatPromptTemplate.from_messages([
+        self.rag_prompt = ChatPromptTemplate.from_messages([
             ("system", system_prompt),
             ("human", user_prompt),
         ])
 
-        self.rag_chain = rag_prompt | self.llm | StrOutputParser()
+        self.rag_chain = self.rag_prompt | self.llm | StrOutputParser()
         print(f"✓ RAG chain ready")
 
     def _load_excel_documents(self, path: Path) -> List:
@@ -315,15 +320,24 @@ Provide a thoughtful, personalized response that teaches decision-making."""
         print(f"✓ Loaded {len(docs)} document(s) from {path.name}")
         return docs
 
-    def _hybrid_retrieve(self, question: str, k: int):
+    def _hybrid_retrieve(self, question: str, k: int, query_vector: Optional[list] = None):
         """Hybrid retrieval: fuse dense (vector) and BM25 (keyword) rankings via
         reciprocal-rank fusion. Returns a list of (Document, dense_score) tuples,
         ordered by fused rank. The reported score is the dense cosine score (for
         continuity with the dense-only baseline); BM25-only hits report 0.0.
+
+        When ``query_vector`` is provided (e.g. embedded with a user-supplied
+        OpenAI key), the dense search runs against that vector instead of
+        re-embedding ``question`` with the server's key.
         """
         candidate_k = max(20, k * 4)
 
-        dense_scored = self.vector_store.similarity_search_with_score(question, k=candidate_k)
+        if query_vector is not None:
+            dense_scored = self.vector_store.similarity_search_with_score_by_vector(
+                query_vector, k=candidate_k
+            )
+        else:
+            dense_scored = self.vector_store.similarity_search_with_score(question, k=candidate_k)
         dense_rank, score_map, doc_by_key = {}, {}, {}
         for rank, (doc, score) in enumerate(dense_scored):
             key = doc.page_content
@@ -351,11 +365,34 @@ Provide a thoughtful, personalized response that teaches decision-making."""
 
         return [(doc_by_key[key], score_map.get(key, 0.0)) for key, _ in fused[:k]]
 
-    def retrieve_and_answer(self, question: str, user_context: Optional[str] = None) -> dict:
-        """Retrieve relevant chunks and generate answer."""
+    def retrieve_and_answer(
+        self,
+        question: str,
+        user_context: Optional[str] = None,
+        openai_api_key: Optional[str] = None,
+        anthropic_api_key: Optional[str] = None,
+    ) -> dict:
+        """Retrieve relevant chunks and generate answer.
+
+        If ``openai_api_key`` / ``anthropic_api_key`` are given, they override
+        the server keys for query embedding and generation respectively
+        (bring-your-own-key). Keys are used transiently and never stored.
+        """
+        # If the user supplied their own OpenAI key, embed the query with it so
+        # the dense search runs on their quota. Same model → vectors remain
+        # comparable to the store built at startup.
+        query_vector = None
+        if openai_api_key:
+            user_embeddings = OpenAIEmbeddings(model=EMBEDDING_MODEL, api_key=openai_api_key)
+            query_vector = user_embeddings.embed_query(question)
+
         # Retrieve — hybrid (BM25 + dense) when enabled, else dense-only.
         if HYBRID_RETRIEVAL and self.bm25 is not None:
-            scored_docs = self._hybrid_retrieve(question, RETRIEVAL_K)
+            scored_docs = self._hybrid_retrieve(question, RETRIEVAL_K, query_vector=query_vector)
+        elif query_vector is not None:
+            scored_docs = self.vector_store.similarity_search_with_score_by_vector(
+                query_vector, k=RETRIEVAL_K
+            )
         else:
             scored_docs = self.vector_store.similarity_search_with_score(question, k=RETRIEVAL_K)
 
@@ -393,8 +430,15 @@ Provide a thoughtful, personalized response that teaches decision-making."""
         if user_context:
             context = f"User Context:\n{user_context}\n\n{context}"
 
-        # Generate answer
-        answer = self.rag_chain.invoke({
+        # Generate answer — use the user's Anthropic key if supplied, else the
+        # server's pre-built chain.
+        if anthropic_api_key:
+            user_llm = ChatAnthropic(model=LLM_MODEL, api_key=anthropic_api_key)
+            chain = self.rag_prompt | user_llm | StrOutputParser()
+        else:
+            chain = self.rag_chain
+
+        answer = chain.invoke({
             "context": context,
             "question": question,
         })
@@ -484,8 +528,13 @@ async def chat(request: ChatRequest) -> ChatResponse:
                 f"Risk tolerance: {ctx.get('risk_tolerance', 'unknown')}"
             )
 
-        # Retrieve and answer
-        result = rag.retrieve_and_answer(request.message, context_str)
+        # Retrieve and answer (honoring any bring-your-own-key overrides)
+        result = rag.retrieve_and_answer(
+            request.message,
+            context_str,
+            openai_api_key=request.openai_api_key,
+            anthropic_api_key=request.anthropic_api_key,
+        )
 
         # Store in session
         sessions[session_id]["messages"].append({
@@ -511,7 +560,16 @@ async def chat(request: ChatRequest) -> ChatResponse:
         )
 
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        # Surface user-supplied-key auth failures as a clear 401 instead of 500.
+        msg = str(e)
+        if request.openai_api_key or request.anthropic_api_key:
+            low = msg.lower()
+            if "authentication" in low or "api key" in low or "401" in low or "invalid" in low:
+                raise HTTPException(
+                    status_code=401,
+                    detail="The provided API key was rejected. Check your OpenAI/Anthropic key and try again.",
+                )
+        raise HTTPException(status_code=500, detail=msg)
 
 
 @app.get("/session/{session_id}")
