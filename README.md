@@ -36,7 +36,7 @@ FastAPI backend (backend_main.py)
 
 - The entire RAG pipeline is built **at startup** (`FinancialAdvisorRAG._initialize()`): load PDF → chunk (1000/150) → embed → build Qdrant (`location=":memory:"`).
 - **Multiple data sources:** the PDF is chunked, while spreadsheets (`tax_slab_2025.xlsx`) are loaded whole via `_load_excel_documents()` — one full-table document plus one per row — since tabular data doesn't chunk well. Add more via the `EXCEL_SOURCES` list in `backend_main.py`.
-- Retrieval uses `similarity_search_with_score` (k=4); the user profile is prepended to the retrieved context before generation.
+- Retrieval is hybrid (BM25 + dense `similarity_search_with_score`, fused with RRF) at k=6; the user profile is prepended to the retrieved context before generation. Toggle via `HYBRID_RETRIEVAL` in `backend_main.py`.
 - Sessions/users are held in **process-local dicts** (Redis is imported but not yet wired in).
 
 ## Tech stack
